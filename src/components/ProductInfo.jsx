@@ -1,10 +1,13 @@
 import React from "react";
-import "../styles/ProductInfo.scss";
+import ".@styles/ProductInfo.scss";
+
+import bike from '@products/bike.jpeg';
+import addToCart from 'icons/bt_add_to_cart.svg';
 
 const ProductInfo = () => {
   return (
     <>
-      <img src="../assets/bike.jpeg" alt="bike" />
+      <img src={bike} alt="bike" />
 
       <div className="ProductInfo">
         <p>$35,00</p>
@@ -15,7 +18,7 @@ const ProductInfo = () => {
           aesthetic to your kitchen or workplace
         </p>
         <button className="primary-button add-to-cart-button">
-          <img src="../assets/icons/bt_add_to_cart.svg" alt="add to cart" />
+          <img src={addToCart} alt="add to cart" />
           Add to cart
         </button>
       </div>
