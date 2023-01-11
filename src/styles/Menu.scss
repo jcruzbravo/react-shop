@@ -6,6 +6,9 @@
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  position: absolute;
+  top: 60px;
+  right: 50px;
 }
 
 .Menu ul {
@@ -37,4 +40,8 @@
   text-decoration: none;
   margin-bottom: 20px;
   display: inline-block;
+}
+
+.Menu ul li a:hover{
+  color: var(--very-light-pink);
 }
