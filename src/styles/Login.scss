@@ -71,6 +71,14 @@
 	margin-top: 14px;
 	margin-bottom: 30px;
 }
+.login-button:hover {
+	background-color: var(--very-light-pink);
+}
+
+.signup-button:hover{
+	background-color: var(--hospital-green);
+	color: var(--white);
+}
 @media (max-width: 640px) {
 	.logo {
 		display: block;
