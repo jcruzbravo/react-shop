@@ -1,19 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import OrderItem from "@components/OrderItem";
 import AppContext from "@context/AppContext";
 import "@styles/MyOrder.scss";
 
-import arrow from '@icons/flechita.svg';
+import arrow from "@icons/flechita.svg";
 
 const MyOrder = () => {
-
   const { state } = useContext(AppContext);
+  console.log(state.cart.length);
 
   const sumTotal = () => {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+    const reducer = (accumulator, currentValue) =>
+      accumulator + currentValue.price;
     const sum = state.cart.reduce(reducer, 0);
     return sum;
-  }
+  };
 
   return (
     <aside className="MyOrder">
@@ -21,18 +22,26 @@ const MyOrder = () => {
         <img src={arrow} alt="arrow" />
         <p className="title">My order</p>
       </div>
-      <div className="my-order-content">
-        {state.cart.map(product => (
-          <OrderItem key={`orderItem-${product.id}`} product={product}/>
-        ))}
-        <div className="order">
-          <p>
-            <span>Total</span>
-          </p>
-          <p>${sumTotal()}</p>
+      {state.cart.length == 0 ? (
+        <h5>No hay productos</h5>
+      ) : (
+        <div className="my-order-content">
+          {state.cart.map((product, index) => (
+            <OrderItem
+              indexValue={index}
+              key={`orderItem-${index}`}
+              product={product}
+            />
+          ))}
+          <div className="order">
+            <p>
+              <span>Total</span>
+            </p>
+            <p>${sumTotal()}</p>
+          </div>
+          <button className="primary-button">Checkout</button>
         </div>
-        <button className="primary-button">Checkout</button>
-      </div>
+      )}
     </aside>
   );
 };
