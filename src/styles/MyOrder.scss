@@ -2,16 +2,32 @@
 
 .MyOrder {
 	width: 360px;
+	height: 800px;
 	padding: 24px;
 	box-sizing: border-box;
-	position: absolute;
-	right: 0;
 	background-color: var(--white);
+	position: fixed;
+	right: 0;
 	top: 60px;
 	bottom: 0;
 	border-radius: 6px;
 	border: 1px solid var(--very-light-pink);
+	transition: 1s ease;
+	animation: moveRight 1s ease forwards;
+	overflow-x: hidden;
+	overflow-y: scroll;
+  scroll-behavior: smooth;
 }
+
+@keyframes moveRight {
+	from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .title-container {
 	display: flex;
 }
