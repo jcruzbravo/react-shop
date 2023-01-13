@@ -7,8 +7,6 @@ import arrow from "@icons/flechita.svg";
 
 const MyOrder = () => {
   const { state } = useContext(AppContext);
-  console.log(state.cart.length);
-
   const sumTotal = () => {
     const reducer = (accumulator, currentValue) =>
       accumulator + currentValue.price;
