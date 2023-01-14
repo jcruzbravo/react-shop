@@ -2,8 +2,7 @@
 
 .MyOrder {
 	width: 360px;
-	height: 800px;
-	padding: 24px;
+	padding: 16px;
 	box-sizing: border-box;
 	background-color: var(--white);
 	position: fixed;
@@ -14,9 +13,6 @@
 	border: 1px solid var(--very-light-pink);
 	transition: 1s ease;
 	animation: moveRight 1s ease forwards;
-	overflow-x: hidden;
-	overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 @keyframes moveRight {
@@ -40,6 +36,14 @@
 	font-size: var(--lg);
 	font-weight: bold;
 }
+
+.orderItem-container{
+	margin-bottom: 5px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+	scroll-behavior: smooth;
+}
+
 .order {
 	display: grid;
 	grid-template-columns: auto 1fr;
