@@ -5,7 +5,7 @@ import "@styles/MyOrder.scss";
 
 import arrow from "@icons/flechita.svg";
 
-const MyOrder = () => {
+const MyOrder = ({ toggleOrders, setToggleOrders}) => {
   const { state } = useContext(AppContext);
   const sumTotal = () => {
     const reducer = (accumulator, currentValue) =>
@@ -17,20 +17,22 @@ const MyOrder = () => {
   return (
     <aside className="MyOrder">
       <div className="title-container">
-        <img src={arrow} alt="arrow" />
+        <img src={arrow} alt="arrow" onClick={() => setToggleOrders(!toggleOrders)}/>
         <p className="title">My order</p>
       </div>
       {state.cart.length == 0 ? (
         <h5>No hay productos</h5>
       ) : (
         <div className="my-order-content">
-          {state.cart.map((product, index) => (
-            <OrderItem
-              indexValue={index}
-              key={`orderItem-${index}`}
-              product={product}
-            />
-          ))}
+          <div className="orderItem-container">
+            {state.cart.map((product, index) => (
+              <OrderItem
+                indexValue={index}
+                key={`orderItem-${index}`}
+                product={product}
+              />
+            ))}
+          </div>
           <div className="order">
             <p>
               <span>Total</span>
